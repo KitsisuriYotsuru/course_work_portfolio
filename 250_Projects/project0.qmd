@@ -1,5 +1,5 @@
 ---
-title: "Client Report - Introduction"
+title: "Project 0 - setup confirmation"
 subtitle: "Course DS 250"
 author: "Olliver Hall"
 format:
@@ -27,176 +27,56 @@ execute:
 
 ### Introduction
 
-<!-- highlight line 31 to the end and use ctrl + / (win) or command + / (mac) to uncomment out the code below, the same shortcut can be used to comment out code again. -->
-<!-- 
 ```{python}
 #| label: libraries
 #| include: false
 import pandas as pd
 import numpy as np
-import plotly.express as px
+from lets_plot import *
+
+LetsPlot.setup_html()
 ```
-
-
-### Elevator pitch
-
-_TODO:paste your elevator pitch here_
-_REMOVE ME: ELEVATOR PITCH IS A SHORT (3-5 SENTENCES) PARAGRAPH THAT `DESCRIBES KEY INSIGHTS` TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS._
-
-```{python}
-#| label: project-data
-#| code-summary: Read and format project data
-# Include and execute your code here
-df = pd.read_csv("https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv")
-```
-
-
-### QUESTION|TASK 1
-
-__TODO:COPY PASTE QUESTION|TASK 1 FROM THE PROJECT HERE__
-
-_TODO: type your results and analysis here_
-
-_TODO and REMOVE: remove any cells not relavent to this question_
-
-```{python}
-#| label: Q1
-#| code-summary: Read and format data
-# Include and execute your code here
-# Include import statements here 
-# Include reading data statements here
-
-```
-
-```{python}
-#| label: Q1-chart
-#| code-summary: plot example
-#| fig-cap: "My useless chart"
-#| fig-align: center
-# Include and execute your code here
-chart = px.scatter(df.head(200),
-    x="name", 
-    y="AK"
-)
-chart
-```
-
-_REMOVE ME: the output of any code cell will appear below the cell, including tables and charts_
-
-```{python}
-#| label: Q1-table
-#| code-summary: table example
-#| tbl-cap: "Not much of a table"
-#| tbl-cap-location: top
-# Include and execute your code here
-mydat = df.head(1000)\
-    .groupby('year')\
-    .sum()\
-    .reset_index()\
-    .tail(10)\
-    .filter(["year", "AK","AR"])
-
-display(mydat)
-
-```
-
-_REMOVE ME: the output of any code cell will appear below the cell, including tables and charts_
 
 ### QUESTION|TASK 2
 
-__TODO: COPY PASTE QUESTION|TASK 2 FROM THE PROJECT HERE__
+Recreate the example chart from PY4DS: CH2 Data Visualization of the textbook.
 
-_TODO: type your results and analysis here_
-
-_TODO and REMOVE: remove any cells not relavent to this question_
+    the process was cool to walk through building a chart up and seeing the peices slide into place, like how you can have the species color in both the ggplot mapping variable or the geom_point mapping variable. 
 
 ```{python}
-#| label: Q2
-#| code-summary: Read and format data
-# Include and execute your code here
-
-
-```
-
-```{python}
-#| label: Q2-chart
-#| code-summary: plot example
-#| fig-cap: "My useless chart"
-#| fig-align: center
-# Include and execute your code here
-chart = px.bar(df.head(200),
-    x="name", 
-    y="AK"
+#| label: Q2 chart
+#| code-summary: chart recreation
+(
+    ggplot(
+        data = pd.read_csv('penguins.csv'),
+        mapping = aes(
+            x = 'flipper_length_mm', 
+            y = 'body_mass_g'
+        )
+    ) 
+    + geom_point(mapping=aes(color = 'species', shape='species'))
+    + geom_smooth(method='lm')
+    + labs(
+        title="Body mass and flipper length",
+        subtitle="Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
+        x="Flipper length (mm)",
+        y="Body mass (g)",
+        color="Species",
+        shape="Species",
+    )
 )
-chart.show()
 ```
-
-_REMOVE ME: the output of any code cell will appear below the cell, including tables and charts_
-
-```{python}
-#| label: Q2-table
-#| code-summary: table example
-#| tbl-cap: "Not much of a table"
-#| tbl-cap-location: top
-# Include and execute your code here
-mydat = df.head(1000)\
-    .groupby('year')\
-    .sum()\
-    .reset_index()\
-    .tail(10)\
-    .filter(["year", "AK","AR"])
-
-display(mydat)
-
-```
-
-_REMOVE ME: the output of any code cell will appear below the cell, including tables and charts_
 
 ### QUESTION|TASK 3
 
-__TODO: COPY PASTE QUESTION|TASK 3 FROM THE PROJECT HERE__
+Include the table created from PY4DS: CH2 Data Visualization used to create the above chart
 
-_TODO: type your results and analysis here_
-
-_TODO and REMOVE: remove any cells not relavent to this question_
+its quite simple to just display the raw data in a nice format as is, letsplot is super nice
 
 ```{python}
-#| label: Q3
-#| code-summary: Read and format data
-# Include and execute your code here
+#| label: Q2
+#| code-summary: raw data table used to create above chart
 
-
+table = pd.read_csv('penguins.csv')
+table
 ```
-
-```{python}
-#| label: Q3-chart
-#| code-summary: plot example
-#| fig-cap: "My useless chart"
-#| fig-align: center
-# Include and execute your code here
-chart = px.bar(df.head(200),
-    x="name", 
-    y="AK"
-)
-chart.show()
-```
-
-_REMOVE ME: the output of any code cell will appear below the cell, including tables and charts_
-
-```{python}
-#| label: Q3-table
-#| code-summary: table example
-#| tbl-cap: "Not much of a table"
-#| tbl-cap-location: top
-# Include and execute your code here
-mydat = df.head(1000)\
-    .groupby('year')\
-    .sum()\
-    .reset_index()\
-    .tail(10)\
-    .filter(["year", "AK","AR"])
-
-display(mydat)
-
-``` 
-_REMOVE ME: the output of any code cell will appear below the cell, including tables and charts_ -->
