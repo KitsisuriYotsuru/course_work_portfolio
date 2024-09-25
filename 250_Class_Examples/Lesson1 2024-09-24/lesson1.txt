@@ -1,0 +1,25 @@
+- Review of Project 0
+
+- Review of Pandas
+    - loading CSV files
+    - Issue with VSCode
+    - .head()
+    - .tail()
+    - .info()
+    - .describe()
+    - .shape
+    - .columns
+
+- Review Project 1
+    - P4DS: 5.2 Filter rows with .query()
+        - https://byuidatascience.github.io/python4ds/transform.html#filter-rows-with-.query
+    - Chapter 10: DataFrame
+        - https://byuidatascience.github.io/python4ds/dataframe.html
+    - slide
+    - download CSV file
+
+
+- Reading links
+
+Topic
+- pandas
